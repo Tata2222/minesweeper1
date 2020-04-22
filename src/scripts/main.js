@@ -6,7 +6,6 @@ const message = document.querySelector('.message');
 const finalMessage = document.querySelector('.final-message');
 
 function startGame(width, height, bombsCount) {
-  let isGameOver = false;
   const cellsCount = width * height;
 
   feild.style.gridTemplateColumns = `repeat(${width}, 40px)`;
@@ -19,7 +18,9 @@ function startGame(width, height, bombsCount) {
     .sort(() => Math.random() - 0.5).slice(0, bombsCount);
   let closetCount = cellsCount;
 
-  feild.addEventListener('click', (e) => {
+  feild.addEventListener('click', getParams);
+
+  function getParams(e) {
     if (e.target.tagName !== 'BUTTON') {
       return;
     }
@@ -29,7 +30,7 @@ function startGame(width, height, bombsCount) {
     const row = Math.floor(index / width);
 
     openCell(row, column);
-  });
+  }
 
   function getCount(row, column) {
     let count = 0;
@@ -46,10 +47,6 @@ function startGame(width, height, bombsCount) {
   }
 
   function openCell(row, column) {
-    if (isGameOver) {
-      return;
-    }
-
     if (!isValid(row, column)) {
       return;
     }
@@ -64,11 +61,11 @@ function startGame(width, height, bombsCount) {
     cell.disabled = true;
 
     if (isBomb(row, column)) {
-      cell.innerHTML = `<img src=
-      'https://tata2222.github.io/minesweeper1/src/images/bomb.png'
+      // eslint-disable-next-line max-len
+      cell.innerHTML = `<img src='https://github.com/Tata2222/minesweeper1/blob/develop/src/images/bomb.png'
       width='30' height='30'>`;
       finalMessage.innerHTML = 'Game Over';
-      isGameOver = true;
+      feild.removeEventListener('click', getParams);
 
       return setTimeout(restart, 1000);
     }
@@ -82,7 +79,7 @@ function startGame(width, height, bombsCount) {
 
       if (closetCount <= bombsCount) {
         finalMessage.innerHTML = 'You won';
-        isGameOver = true;
+        feild.removeEventListener('click', getParams);
 
         return setTimeout(restart, 1000);
       }
