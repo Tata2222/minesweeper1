@@ -64,7 +64,8 @@ function startGame(width, height, bombsCount) {
     cell.disabled = true;
 
     if (isBomb(row, column)) {
-      cell.innerHTML = `<img src='../../images/bomb.png'
+      cell.innerHTML = `<img src=
+      'https://tata2222.github.io/minesweeper1/src/images/bomb.png'
       width='30' height='30'>`;
       finalMessage.innerHTML = 'Game Over';
       isGameOver = true;
