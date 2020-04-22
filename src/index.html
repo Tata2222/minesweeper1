@@ -7,7 +7,25 @@
     <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
+
+    <div class="message">
+      <div class="final-message"></div>
+      <form id="forma">
+        Введите размер поля<br><br>
+        <label for="column">Количество столбцов</label>
+        <input type="number" id= "column" name="column" value="8" min="4" max="60">
+        <label for="row">Количество рядов</label>
+        <input type="number" id= "row" name="row" value="8" min="4" max="60">
+        <label for="bomb">Количество бомб</label>
+        <input type="number" id="bomb" name="bomb" value="15" min="4" max="40">
+
+        <button type="submit" class="quiz">Play</button>
+      </form>
+    </div>
+
+    <div class="feild"></div>
+
+
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
