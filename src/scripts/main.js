@@ -62,8 +62,7 @@ function startGame(width, height, bombsCount) {
 
     if (isBomb(row, column)) {
       // eslint-disable-next-line max-len
-      cell.innerHTML = `<img src='https://github.com/Tata2222/minesweeper1/blob/develop/src/images/bomb.png'
-      width='30' height='30'>`;
+      cell.innerHTML = `<img src='src/images/bomb.png' width='30' height='30'>`;
       finalMessage.innerHTML = 'Game Over';
       feild.removeEventListener('click', getParams);
 
