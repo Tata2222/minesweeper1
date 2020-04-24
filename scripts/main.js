@@ -64,7 +64,7 @@ function startGame(width, height, bombsCount) {
       const img = document.createElement('img');
 
       // eslint-disable-next-line max-len
-      img.src = `https://github.com/Tata2222/minesweeper1/blob/develop/src/images/bomb.png`;
+      img.src = `images/bomb.png`;
 
       cell.append(img);
       finalMessage.innerHTML = 'Game Over';
