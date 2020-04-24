@@ -61,12 +61,7 @@ function startGame(width, height, bombsCount) {
     cell.disabled = true;
 
     if (isBomb(row, column)) {
-      const img = document.createElement('img');
-
-      // eslint-disable-next-line max-len
-      img.src = `images/bomb.png`;
-
-      cell.append(img);
+      cell.innerHTML = `<img src='images/bomb.png' width='30' height='30'>`;
       finalMessage.innerHTML = 'Game Over';
       feild.removeEventListener('click', getParams);
 
